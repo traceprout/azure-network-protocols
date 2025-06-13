@@ -25,10 +25,10 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Observe ICMP Traffic
+- Configure Firewalls
+- Observe SSH Traffic
+- Observe DNS Traffic
 
 <h2>Actions and Observations</h2>
 
@@ -36,7 +36,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In order to get started we need to log into Azure and create our resource group and Virtual machine. We want to create a linux VM and a Windows VM. Make sure that the VM and resource group are in the same group. After this we can log into the Windows VM and open up edge then type up Wireshark and download it. Once it is downloaded we want to start packet capture and we want ICMP traffic only. Now we can grab the IP adress of the Linux Vm we just created in Azure and we will try to ping it from our Windows VM. We should now be able to observe traffic in wireshark in the current VM and in Powershell we can ping the Linux VM from our windows VM.
 </p>
 <br />
 
@@ -44,14 +44,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+When we open up the security group in our Ubuntu VM we disable inbound ICMP traffic. Now when we go back into wireshark and ping we can see that we dont get a response back.
 <br />
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Now we are going to look at all of the different kinds of traffic you can see going back and forth in systems. First we'll start with SSH traffic, in wireshark we want to start a capture but only filter for SSH traffic. We will use our Ubuntu VM IP address into powershell and can type different commands like ping and we can observe the traffic spam. For DHCP traffic filter only for DHCP traffic then we put in a new IP from the command line and we are going to run powershell as an admin and type ip config/ renew and we can observe the DHCP traffic in wireshark. DNS traffic only filter for that traffic. we can grab disneys IP address from nslookup and we can see the DNS from wireshark. It may be privated but it still shows the IP as disney. Then for RDP traffic, theres going to be non-stop traffic because its receiving constant information from the other VM we have, instead of it just doing it by us giving it a command. 
 </p>
 <br />
