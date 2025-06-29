@@ -32,8 +32,9 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Actions and Observations</h2>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+![osticket last part](https://github.com/user-attachments/assets/d3e3849f-d1a6-4d36-81ae-802d6529eaac)
+
 </p>
 <p>
 In order to get started we need to log into Azure and create our resource group and Virtual machine. We want to create a linux VM and a Windows VM. Make sure that the VM and resource group are in the same group. After this we can log into the Windows VM and open up edge then type up Wireshark and download it. Once it is downloaded we want to start packet capture and we want ICMP traffic only. Now we can grab the IP adress of the Linux Vm we just created in Azure and we will try to ping it from our Windows VM. We should now be able to observe traffic in wireshark in the current VM and in Powershell we can ping the Linux VM from our windows VM.
