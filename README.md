@@ -41,15 +41,17 @@ In order to get started we need to log into Azure and create our resource group 
 </p>
 <br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+![osticket last 2](https://github.com/user-attachments/assets/3b4fcf0c-1983-447e-a67b-d17a88d0e407)
+
+
 </p>
 <p>
 When we open up the security group in our Ubuntu VM we disable inbound ICMP traffic. Now when we go back into wireshark and ping we can see that we dont get a response back.
 <br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+![osticket last part 3](https://github.com/user-attachments/assets/6a19e5f2-b78f-4203-8f3b-406a378bfd69)
+
 </p>
 <p>
 Now we are going to look at all of the different kinds of traffic you can see going back and forth in systems. First we'll start with SSH traffic, in wireshark we want to start a capture but only filter for SSH traffic. We will use our Ubuntu VM IP address into powershell and can type different commands like ping and we can observe the traffic spam. For DHCP traffic filter only for DHCP traffic then we put in a new IP from the command line and we are going to run powershell as an admin and type ip config/ renew and we can observe the DHCP traffic in wireshark. DNS traffic only filter for that traffic. we can grab disneys IP address from nslookup and we can see the DNS from wireshark. It may be privated but it still shows the IP as disney. Then for RDP traffic, theres going to be non-stop traffic because its receiving constant information from the other VM we have, instead of it just doing it by us giving it a command. 
